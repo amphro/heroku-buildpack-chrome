@@ -45,7 +45,7 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
 done
 
 ls -la $BUILD_DIR/.apt/usr/bin
-cp $BUILD_DIR.apt/usr/bin/google-chrome-stable /usr/bin/
+cp $BUILD_DIR/.apt/usr/bin/google-chrome-stable /usr/bin/
 
 #topic "Downloading and installing ChromeDriver to ${BUILD_DIR}"
 #mkdir -p "$BUILD_DIR/vendor/chromedriver/"
