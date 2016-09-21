@@ -44,24 +44,24 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
 
-ls -la $BUILD_DIR/.apt/
+ls -la $BUILD_DIR/.apt/usr/bin
 
-topic "Downloading and installing ChromeDriver to ${BUILD_DIR}"
-mkdir -p "$BUILD_DIR/vendor/chromedriver/"
-mkdir -p "$BUILD_DIR/vendor/chromedriver/bin"
-export PATH="$BUILD_DIR/vendor/chromedriver/bin":$PATH
+#topic "Downloading and installing ChromeDriver to ${BUILD_DIR}"
+#mkdir -p "$BUILD_DIR/vendor/chromedriver/"
+#mkdir -p "$BUILD_DIR/vendor/chromedriver/bin"
+#export PATH="$BUILD_DIR/vendor/chromedriver/bin":$PATH
 
-chromedriver_url="http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip"
-curl $chromedriver_url -s -o "$BUILD_DIR/vendor/chromedriver/chromedriver.zip"
-unzip "$BUILD_DIR/vendor/chromedriver/chromedriver.zip" -d "$BUILD_DIR/vendor/chromedriver/chromedriver"
-rm "$BUILD_DIR/vendor/chromedriver/chromedriver.zip"
-mv "$BUILD_DIR/vendor/chromedriver/chromedriver" "$BUILD_DIR/vendor/chromedriver/bin"
+#chromedriver_url="http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip"
+#curl $chromedriver_url -s -o "$BUILD_DIR/vendor/chromedriver/chromedriver.zip"
+#unzip "$BUILD_DIR/vendor/chromedriver/chromedriver.zip" -d "$BUILD_DIR/vendor/chromedriver/chromedriver"
+#rm "$BUILD_DIR/vendor/chromedriver/chromedriver.zip"
+#mv "$BUILD_DIR/vendor/chromedriver/chromedriver" "$BUILD_DIR/vendor/chromedriver/bin"
 
-topic "exporting PATH and LIBRARY_PATH"
-PROFILE_PATH="$BUILD_DIR/.profile.d/chrome.sh"
-mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH=".apt/usr/bin:vendor/chromedriver/bin:$PATH"'>> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH=".apt/usr/lib:\$LD_LIBRARY_PATH"'>> $PROFILE_PATH
-echo 'export INCLUDE_PATH=".apt/usr/include:\$INCLUDE_PATH"'>> $PROFILE_PATH
-echo 'export CPATH="\$INCLUDE_PATH"'>> $PROFILE_PATH
-echo 'export CPPPATH="\$INCLUDE_PATH"'>> $PROFILE_PATH
+#topic "exporting PATH and LIBRARY_PATH"
+#PROFILE_PATH="$BUILD_DIR/.profile.d/chrome.sh"
+#mkdir -p $(dirname $PROFILE_PATH)
+#echo 'export PATH=".apt/usr/bin:vendor/chromedriver/bin:$PATH"'>> $PROFILE_PATH
+#echo 'export LD_LIBRARY_PATH=".apt/usr/lib:\$LD_LIBRARY_PATH"'>> $PROFILE_PATH
+#echo 'export INCLUDE_PATH=".apt/usr/include:\$INCLUDE_PATH"'>> $PROFILE_PATH
+#echo 'export CPATH="\$INCLUDE_PATH"'>> $PROFILE_PATH
+#echo 'export CPPPATH="\$INCLUDE_PATH"'>> $PROFILE_PATH
