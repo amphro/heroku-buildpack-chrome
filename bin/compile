@@ -51,7 +51,7 @@ ls -la /opt/google/chrome
 #topic "Downloading and installing ChromeDriver to ${BUILD_DIR}"
 #mkdir -p "$BUILD_DIR/vendor/chromedriver/"
 #mkdir -p "$BUILD_DIR/vendor/chromedriver/bin"
-export PATH="$BUILD_DIR/.apt/usr/bin/":/opt/google/:$PATH"
+export PATH=$BUILD_DIR/.apt/usr/bin/:/opt/google/:$PATH
 echo $PATH
 
 
